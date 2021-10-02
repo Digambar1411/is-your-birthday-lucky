@@ -16,35 +16,40 @@ function calculateLucky(){
 }
 
 function sumOfArr(arr){
-    // hideMessage();
+    hideMessage();
     var sum=0;
     if(bDate.value && luckyNum.value){
         for (var i=0; i<arr.length; i++){
             sum+=Number(arr[i]);
             if(sum%luckyNum.value===0){
 
-                result.innerText="Wow your birthday is lucky !!! 🎉";
+                
+                showMessage("Wow your birthday is lucky !!! 🎉");
             }
             else{
-                result.innerText="Oops !!! your birthday is not lucky 😞";
+                
+                showMessage("Oops !!! your birthday is not lucky 😞");
             }
         }
         
     }
     else{
-        showMessage("date of birth or lucky number cannot be null");
+        errorMsg.style.display="block";
+        errorMsg.innerText="date of birth or lucky number cannot be null";
     }
 
 }
 
 function showMessage(msg){
-    errorMsg.innerText=msg;
-    errorMsg.style.display="block";
+   
+    result.style.display="block";
+    result.innerText=msg;
 
 }
 
 function hideMessage(){
     errorMsg.style.display="none";
+    result.style.display="none";
 }
 
 
